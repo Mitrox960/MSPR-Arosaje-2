@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accountCreateOrConnexion');
 });
+Route::get('/header', function () {
+    return view('header');
+});
+Route::get('/footer', function () {
+    return view('footer');
+});
+Route::get('/accountCreate', function () {
+    return view('accountCreate');
+});
+Route::get('/accountLogin', function () {
+    return view('accountLogin');
+});
+
+
