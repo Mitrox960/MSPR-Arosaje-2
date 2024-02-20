@@ -15,13 +15,19 @@
             <div>
             <form type="POST">
                 <div>
-                <input value="Nom"type="text"> <br>
-                <input value="Prenom" type="text"> <br>
-                <input value="Adresse Email" type='mail'> <br>
-                <input value="Mot de passe" type="text"> <br>
-                <input value="Confirmation mot de passe" type="text"> <br>
+                    <label>Nom</label> <br> 
+                <input placeholder="Nom"type="text"> <br>
+                <label>Prenom</label> <br>
+                <input placeholder="Prenom" type="text">  <br>
+                <label>Email</label> <br>
+                <input placeholder="Adresse Email" type='mail'> <br> 
+                <label>Mot de passe</label> <br>
+                <input placeholder="Mot de passe" type="text">  <br>
+                <label>Confirmation du mot de passe</label> <br>
+                <input placeholder="Confirmation mot de passe" type="text"> <br>
                 </div>
                 <input type='button' value='Enregistrer les modifications' class="buttonPostCreateAcccount">
+                <a href="/accountLogin">Se connecter</a>
             </form>
             </div>
         </main>
