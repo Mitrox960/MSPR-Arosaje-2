@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateAccountController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\CreatePlanteController;
+use App\Http\Controllers\UserPlantesController;
 
 
 /*
@@ -73,3 +75,21 @@ Route::get('/accountForm', [CreateAccountController::class, 'showRegistrationFor
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::post('/sendLogin', [LoginController::class, 'sendLogin'])->name('sendLogin'); // Ajoutez cette ligne pour la connexion
+
+// récupère la dernière route en cas de route invalide A ACTIVER ET AMELIORER A LA FIN POUR EVITER DE SE COMPLIQUER NOTRE DEBOGAGE
+/*
+Route::fallback(function () {
+    $lastRoute = Session::get('last_route', '/');
+
+    return redirect($lastRoute);
+})->name('fallback');
+
+*/
+
+
+//plantes
+
+Route::post('/planteCreation', [CreatePlanteController::class, 'creationPlante'])->name('planteCreation');
+Route::get('/plante', [CreatePlanteController::class, 'showPlanteCreationForm'])->name('showPlanteCreationForm');
+
+Route::get('/user-plantes', [UserPlantesController::class, 'showPlantes'])->name('user.plantes');

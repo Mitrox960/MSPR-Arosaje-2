@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\Plante;
 
 class Utilisateur extends Model implements Authenticatable
 {
@@ -70,6 +71,11 @@ class Utilisateur extends Model implements Authenticatable
     public function getRememberTokenName()
     {
         return 'remember_token';
+    }
+
+    public function plantes()
+    {
+        return $this->hasMany(Plante::class, 'id_utilisateur');
     }
 
     // Ajoute d'autres relations si n�cessaire

@@ -59,9 +59,9 @@ public function register(Request $request)
             'id_adresse' => $adresse->id,
         ]);
 
-        return redirect('/accountLogin')->with('success', 'Compte créé avec succès!');
+        return redirect('/login')->with('success', 'Compte créé avec succès!');
     } catch (\Exception $e) {
-        return redirect()->back()->withErrors(['error' => 'Une erreur est survenue lors de la création du compte. Veuillez réessayer.']);
+        return redirect()->back();
     }
 }
 
