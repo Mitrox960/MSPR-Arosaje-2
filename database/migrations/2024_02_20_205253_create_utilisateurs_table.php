@@ -19,12 +19,12 @@ class CreateUtilisateursTable extends Migration
             $table->string('telephone', 20);
             $table->unsignedBigInteger('id_adresse');
             $table->string('id_role', 50);
-            // Ajoute d'autres colonnes si nécessaire
+            // Ajoute d'autres colonnes si nï¿½cessaire
 
             $table->timestamps();
         });
 
-        // Ajoute des clés étrangères
+        // Ajoute des clï¿½s ï¿½trangï¿½res
         Schema::table('utilisateurs', function (Blueprint $table) {
             $table->foreign('id_adresse')->references('id')->on('adresses')->onDelete('cascade');
             $table->foreign('id_role')->references('identifiant')->on('roles');

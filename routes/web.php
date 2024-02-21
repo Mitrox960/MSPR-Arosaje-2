@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateAccountController;
-
+use App\Http\Controllers\CreatePlanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,11 @@ Route::get('/footer', function () {
 });
 
 Route::post('/accountCreate', [CreateAccountController::class, 'register'])->name('accountCreate');
+
+
+Route::post('/planteCreation', [CreatePlanteController::class, 'creationPlante'])->name('planteCreation');
+Route::get('/plante', [CreatePlanteController::class, 'plante'])->name('plante');
+
 
 
 

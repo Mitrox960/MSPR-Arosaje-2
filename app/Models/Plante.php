@@ -25,13 +25,12 @@ class Plante extends Model
 
     public function createPlante(string $nom, string $image, string $desc, string $conseil_entret, int $id_session_de_garde) 
     {
-        Plante::create(
-            $this->nom = $nom,
-            $this->nom = $image,
-            $this->nom = $desc,
-            $this->nom = $conseil_entret,
-            $this->nom = $id_session_de_garde,
-            $this->save()
-          );
+        $plante = Plante::create([
+            'nom' => $nom,
+            'image' => $image,
+            'description' => $desc,
+            'conseil_entretien' => $conseil_entret,
+            'id_session_de_garde' => $id_session_de_garde,
+        ]);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Plante;
 
-class NomDuModeleService
+class PlanteService
 {
     protected Plante $plante;
 
@@ -23,8 +23,8 @@ class NomDuModeleService
         return $this->plante->find($id);
     }
 
-    public function create($nom, $image, $desc, $conseil_entret, $id_session_de_garde)
+    public function create($nom, $image, $desc, $conseil_entret, $id_session_de_garde = null)
     {
-        return $this->plante->create($nom, $image, $desc, $conseil_entret, $id_session_de_garde);
+        return $this->plante->createPlante($nom, $image, $desc, $conseil_entret, $id_session_de_garde);
     }
 }
