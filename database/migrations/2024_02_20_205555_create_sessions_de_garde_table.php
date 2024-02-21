@@ -15,12 +15,12 @@ class CreateSessionsDeGardeTable extends Migration
             $table->dateTime('date_de_debut');
             $table->dateTime('date_de_fin');
             $table->unsignedBigInteger('id_utilisateur');
-            // Ajoute d'autres colonnes si nécessaire
+            // Ajoute d'autres colonnes si nï¿½cessaire
 
             $table->timestamps();
         });
 
-        // Ajoute une clé étrangère dans la table des utilisateurs
+        // Ajoute une clï¿½ ï¿½trangï¿½re dans la table des utilisateurs
         Schema::table('sessions_de_garde', function (Blueprint $table) {
             $table->foreign('id_utilisateur')->references('id')->on('utilisateurs')->onDelete('cascade');
         });

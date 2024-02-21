@@ -1,4 +1,3 @@
-// app/Models/SessionDeGarde.php
 <?php
 
 namespace App\Models;
@@ -37,5 +36,5 @@ class SessionDeGarde extends Model
         return $this->hasMany(SeanceEntretien::class, 'id_session_de_garde');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    // Ajoute d'autres relations si nï¿½cessaire
 }

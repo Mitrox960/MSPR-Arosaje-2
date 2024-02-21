@@ -1,4 +1,3 @@
-// app/Models/Plante.php
 <?php
 
 namespace App\Models;
@@ -24,5 +23,15 @@ class Plante extends Model
         return $this->belongsTo(SessionDeGarde::class, 'id_session_de_garde');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    public function createPlante(string $nom, string $image, string $desc, string $conseil_entret, int $id_session_de_garde) 
+    {
+        Plante::create(
+            $this->nom = $nom,
+            $this->nom = $image,
+            $this->nom = $desc,
+            $this->nom = $conseil_entret,
+            $this->nom = $id_session_de_garde,
+            $this->save()
+          );
+    }
 }

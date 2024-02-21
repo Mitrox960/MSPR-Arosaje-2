@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Utilisateur; // Assurez-vous d'importer le modèle User
+use App\Models\Utilisateur; // Assurez-vous d'importer le modï¿½le User
 use App\Models\Role;
 
 class CreateAccountController extends Controller
@@ -20,7 +20,7 @@ class CreateAccountController extends Controller
     {
 
 
-        // Valider les données du formulaire
+        // Valider les donnï¿½es du formulaire
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -30,12 +30,12 @@ class CreateAccountController extends Controller
             'code_postal' => 'required|string|max:10',
             'nom_voie' => 'required|string|max:255',
             'numero_voie' => 'required|string|max:20',
-            'role' => 'required|in:admin,utilisateur', // Assurez-vous que le rôle est l'un des choix autorisés
+            'role' => 'required|in:admin,utilisateur', // Assurez-vous que le rï¿½le est l'un des choix autorisï¿½s
             'date_de_naissance' => 'required|date', // Ajout de la date de naissance
-            'telephone' => 'required|string|max:20', // Ajout du numéro de téléphone
+            'telephone' => 'required|string|max:20', // Ajout du numï¿½ro de tï¿½lï¿½phone
         ]);
         /*
-        // Créer un nouvel utilisateur avec les données validées
+        // Crï¿½er un nouvel utilisateur avec les donnï¿½es validï¿½es
         $user = Utilisateur::create([
             'nom' => $validatedData['nom'],
             'prenom' => $validatedData['prenom'],
@@ -45,7 +45,7 @@ class CreateAccountController extends Controller
             'telephone' => $validatedData['telephone'],
         ]);
 
-        // Ajouter les détails de l'adresse
+        // Ajouter les dï¿½tails de l'adresse
         $user->adresse()->create([
             'ville' => $validatedData['ville'],
             'code_postal' => $validatedData['code_postal'],
@@ -55,12 +55,12 @@ class CreateAccountController extends Controller
 
         $user->assignRole($validatedData['role']);*/
 
-        return redirect('/confirmation')->with('success', 'Compte créé avec succès!');
+        return redirect('/confirmation')->with('success', 'Compte crï¿½ï¿½ avec succï¿½s!');
 
-        // Assigner le rôle
+        // Assigner le rï¿½le
 
 
-        // Rediriger l'utilisateur vers la page de confirmation, ou tout autre endroit souhaité
+        // Rediriger l'utilisateur vers la page de confirmation, ou tout autre endroit souhaitï¿½
 
     }
 

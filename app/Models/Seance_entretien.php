@@ -1,4 +1,3 @@
-// app/Models/SeanceEntretien.php
 <?php
 
 namespace App\Models;
@@ -25,5 +24,5 @@ class SeanceEntretien extends Model
         return $this->belongsTo(SessionDeGarde::class, 'id_session_de_garde');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    // Ajoute d'autres relations si nï¿½cessaire
 }

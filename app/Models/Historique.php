@@ -1,4 +1,3 @@
-// app/Models/Historique.php
 <?php
 
 namespace App\Models;
@@ -24,5 +23,5 @@ class Historique extends Model
         return $this->belongsTo(Utilisateur::class, 'id_utilisateur');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    // Ajoute d'autres relations si nï¿½cessaire
 }

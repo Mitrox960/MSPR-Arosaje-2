@@ -31,12 +31,34 @@ Route::get('/accountLogin', function () {
     return view('accountLogin');
 });
 
+/** --- When user is connected --- */
+Route::get('/headerHome', function () {
+    return view('headerHome');
+});
+Route::get('/accueil', function () {
+    return view('accueil');
+});
+Route::get('/userProfile', function () {
+    return view('userProfile');
+});
+
+/** --- When user is connected --- */
+Route::get('/headerHome', function () {
+    return view('headerHome');
+});
+Route::get('/accueil', function () {
+    return view('accueil');
+});
+Route::get('/userProfile', function () {
+    return view('userProfile');
+});
+
 Route::get('/test-database', function () {
     try {
         DB::connection()->getPdo();
-        echo "La connexion à la base de données fonctionne.";
+        echo "La connexion ï¿½ la base de donnï¿½es fonctionne.";
     } catch (\Exception $e) {
-        die("Impossible de se connecter à la base de données: " . $e->getMessage());
+        die("Impossible de se connecter ï¿½ la base de donnï¿½es: " . $e->getMessage());
     }
 });
 

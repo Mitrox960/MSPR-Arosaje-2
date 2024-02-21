@@ -1,4 +1,3 @@
-// app/Models/Utilisateur.php
 <?php
 
 namespace App\Models;
@@ -42,5 +41,5 @@ class Utilisateur extends Model
         return $this->hasMany(Historique::class, 'id_utilisateur');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    // Ajoute d'autres relations si nï¿½cessaire
 }

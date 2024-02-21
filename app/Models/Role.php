@@ -1,4 +1,3 @@
-// app/Models/Role.php
 <?php
 
 namespace App\Models;
@@ -21,5 +20,5 @@ class Role extends Model
         return $this->hasMany(Utilisateur::class, 'id_role');
     }
 
-    // Ajoute d'autres relations si nécessaire
+    // Ajoute d'autres relations si nï¿½cessaire
 }
