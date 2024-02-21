@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// Importez les modËles au besoin
+// Importez les mod√®les au besoin
 use App\Models\Utilisateur;
 use App\Models\Adresse;
 use App\Models\Role;
@@ -26,7 +26,7 @@ class CreateAccountController extends Controller
 
  public function register(Request $request)
     {
-        // Valider les donnÈes du formulaire
+        // Valider les donn√©es du formulaire
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -45,7 +45,7 @@ class CreateAccountController extends Controller
 
           
 
-            // CrÈer l'adresse
+            // Cr√©er l'adresse
             $adresse = Adresse::create([
                 'ville' => $validatedData['ville'],
                 'code_postal' => $validatedData['code_postal'],
@@ -53,7 +53,7 @@ class CreateAccountController extends Controller
                 'numero_voie' => $validatedData['numero_voie'],
             ]);
 
-            // CrÈer un nouvel utilisateur avec les donnÈes validÈes
+            // Cr√©er un nouvel utilisateur avec les donn√©es valid√©es
             $user = Utilisateur::create([
                 'nom' => $validatedData['nom'],
                 'prenom' => $validatedData['prenom'],
@@ -65,7 +65,7 @@ class CreateAccountController extends Controller
                 'id_adresse' => $adresse->id,
             ]);
 
-            return redirect('/accountLogin')->with('success', 'Compte crÈÈ avec succËs!');
+            return redirect('/accountLogin')->with('success', 'Compte cr√©√© avec succ√®s!');
        
     }
 

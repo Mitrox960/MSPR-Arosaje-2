@@ -10,13 +10,11 @@
     <title>Créer ton Compte</title>
 </head>
 <body>
-    <header>
-        <iframe src="/header" width="100%" height="100"></iframe>
-    </header>
-    <main>
-        <div>
-            <form method="POST" action="{{ route('accountCreate') }}">
-                @csrf
+        <?php include '../resources/views/headerHome.blade.php';?>
+        <?php include '../resources/views/footer.blade.php';?>
+        <main>
+            <div>
+            <form type="POST">
                 <div>
                     <label>Nom</label><br />
                     <input name="nom" placeholder="Nom" type="text" /><br />
@@ -54,10 +52,11 @@
                 </div>
                 <input type='submit' value='Enregistrer les modifications' class="buttonPostCreateAcccount" />
             </form>
-        </div>
-    </main>
-    <footer>
+            </div>
+        </main>
+        <footer>
         <iframe src="/footer" width="100%" height="100"></iframe>
-    </footer>
+
+        </footer>
 </body>
 </html>

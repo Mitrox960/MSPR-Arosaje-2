@@ -1,0 +1,11 @@
+header {
+    background-color: #388E3C;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+}
+header div {
+    display: flex;
+    justify-content: space-between;
+}
