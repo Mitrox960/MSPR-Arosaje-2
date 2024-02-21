@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 
 class CreatePlantesTable extends Migration
 {
@@ -15,15 +13,17 @@ class CreatePlantesTable extends Migration
             $table->string('image', 100);
             $table->string('description', 500);
             $table->string('conseil_entretien', 500);
-            $table->unsignedBigInteger('id_session_de_garde');
+            $table->unsignedBigInteger('id_session_de_garde')->nullable();
+            $table->unsignedBigInteger('id_utilisateur'); // Ajout de la clé étrangère vers utilisateur
             // Ajoute d'autres colonnes si nécessaire
 
             $table->timestamps();
         });
 
-        // Ajoute une clé étrangère dans la table des sessions de garde
+        // Ajoute des clés étrangères dans la table des sessions de garde et des utilisateurs
         Schema::table('plantes', function (Blueprint $table) {
             $table->foreign('id_session_de_garde')->references('id')->on('sessions_de_garde')->onDelete('cascade');
+            $table->foreign('id_utilisateur')->references('id')->on('utilisateurs')->onDelete('cascade');
         });
     }
 

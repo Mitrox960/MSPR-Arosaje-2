@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateAccountController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CreatePlanteController;
+use App\Http\Controllers\UserPlantesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,23 +32,13 @@ Route::get('/footer', function () {
 Route::post('/accountCreate', [CreateAccountController::class, 'register'])->name('accountCreate');
 
 
-Route::post('/planteCreation', [CreatePlanteController::class, 'creationPlante'])->name('planteCreation');
-Route::get('/plante', [CreatePlanteController::class, 'plante'])->name('plante');
-
-
-
-
-Route::get('/accountLogin', function () {
-    return view('accountLogin');
-});
-
 /** --- When user is connected --- */
 Route::get('/headerHome', function () {
     return view('headerHome');
 });
-Route::get('/accueil', function () {
-    return view('accueil');
-});
+
+// Utilisation du middleware 'auth' dans le groupe de routes
+
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
@@ -53,9 +47,15 @@ Route::get('/userProfile', function () {
 Route::get('/headerHome', function () {
     return view('headerHome');
 });
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout'); // Ajoutez cette ligne pour la connexion
+
+
 Route::get('/accueil', function () {
     return view('accueil');
-});
+})->middleware(['auth']);
+
+
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
@@ -70,4 +70,26 @@ Route::get('/test-database', function () {
 });
 
 // Afficher le formulaire
-Route::get('/accountCreate', [CreateAccountController::class, 'showRegistrationForm'])->name('showRegistrationForm');
+Route::get('/accountForm', [CreateAccountController::class, 'showRegistrationForm'])->name('accountForm');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+Route::post('/sendLogin', [LoginController::class, 'sendLogin'])->name('sendLogin'); // Ajoutez cette ligne pour la connexion
+
+// récupère la dernière route en cas de route invalide A ACTIVER ET AMELIORER A LA FIN POUR EVITER DE SE COMPLIQUER NOTRE DEBOGAGE
+/*
+Route::fallback(function () {
+    $lastRoute = Session::get('last_route', '/');
+
+    return redirect($lastRoute);
+})->name('fallback');
+
+*/
+
+
+//plantes
+
+Route::post('/planteCreation', [CreatePlanteController::class, 'creationPlante'])->name('planteCreation');
+Route::get('/plante', [CreatePlanteController::class, 'showPlanteCreationForm'])->name('showPlanteCreationForm');
+
+Route::get('/user-plantes', [UserPlantesController::class, 'showPlantes'])->name('user.plantes');

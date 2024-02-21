@@ -6,22 +6,23 @@
     <title>Se connecter</title>
     <link href="css/accountLogin.css" rel="stylesheet">
 </head>
-<body>  
-        <?php include '../resources/views/headerHome.blade.php';?>
-        <?php include '../resources/views/footer.blade.php';?>
-        <main>
-        <form type="POST">
-                <div>
+<body>
+     <?php include '../resources/views/headerHome.blade.php';?>
+     <?php include '../resources/views/footer.blade.php';?>
+    <main>
+        <form method="POST" action="{{ route('sendLogin') }}">
+            @csrf
+            <div>
                 <label>Identifiant</label> <br>
-                <input placeholder="Email ou nom d'utilisateur"type="text"> <br>
+                <input name="identifiant" placeholder="Email ou nom d'utilisateur" type="text"> <br>
                 <label>Mot de passe</label> <br>
-                <input placeholder="Mot de passe" type="text"> <br>
-                
-                </div>
-                <input type='button' value='Enregistrer les modifications' class="buttonPostCreateAcccount">
-                <a href="/accountCreate">Créer mon compte</a>
-            </form>
-        </main>
-        
+                <input name="mot_de_passe" placeholder="Mot de passe" type="password"> <br>
+            </div>
+            <input type='submit' value='Se connecter' class="buttonPostCreateAcccount">
+            <a href="{{ route('accountCreate') }}">Créer mon compte</a>
+        </form>
+    </main>
+
+    @include('footer') <!-- Inclure le footer -->
 </body>
 </html>
