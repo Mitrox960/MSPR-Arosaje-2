@@ -1,4 +1,3 @@
-// database/migrations/[timestamp]_create_plantes_table.php
 <?php
 
 use Illuminate\Database\Migrations\Migration;

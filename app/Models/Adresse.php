@@ -1,4 +1,3 @@
-// app/Models/Adresse.php
 <?php
 
 namespace App\Models;

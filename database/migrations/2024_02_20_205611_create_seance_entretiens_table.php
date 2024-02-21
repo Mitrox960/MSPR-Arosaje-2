@@ -1,4 +1,3 @@
-// database/migrations/[timestamp]_create_seance_entretiens_table.php
 <?php
 
 use Illuminate\Database\Migrations\Migration;

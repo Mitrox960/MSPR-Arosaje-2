@@ -1,4 +1,3 @@
-// app/Models/Plante.php
 <?php
 
 namespace App\Models;

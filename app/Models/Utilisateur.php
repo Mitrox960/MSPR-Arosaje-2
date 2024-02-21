@@ -1,4 +1,3 @@
-// app/Models/Utilisateur.php
 <?php
 
 namespace App\Models;
