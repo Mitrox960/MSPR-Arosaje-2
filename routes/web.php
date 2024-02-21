@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateAccountController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 
 /*
@@ -28,18 +30,13 @@ Route::get('/footer', function () {
 Route::post('/accountCreate', [CreateAccountController::class, 'register'])->name('accountCreate');
 
 
-
-Route::get('/accountLogin', function () {
-    return view('accountLogin');
-});
-
 /** --- When user is connected --- */
 Route::get('/headerHome', function () {
     return view('headerHome');
 });
-Route::get('/accueil', function () {
-    return view('accueil');
-});
+
+// Utilisation du middleware 'auth' dans le groupe de routes
+
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
@@ -48,9 +45,15 @@ Route::get('/userProfile', function () {
 Route::get('/headerHome', function () {
     return view('headerHome');
 });
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout'); // Ajoutez cette ligne pour la connexion
+
+
 Route::get('/accueil', function () {
     return view('accueil');
-});
+})->middleware(['auth']);
+
+
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
@@ -65,4 +68,8 @@ Route::get('/test-database', function () {
 });
 
 // Afficher le formulaire
-Route::get('/accountCreate', [CreateAccountController::class, 'showRegistrationForm'])->name('showRegistrationForm');
+Route::get('/accountForm', [CreateAccountController::class, 'showRegistrationForm'])->name('accountForm');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+Route::post('/sendLogin', [LoginController::class, 'sendLogin'])->name('sendLogin'); // Ajoutez cette ligne pour la connexion

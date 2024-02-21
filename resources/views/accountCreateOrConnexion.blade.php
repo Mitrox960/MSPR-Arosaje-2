@@ -11,8 +11,8 @@
         <?php include '../resources/views/footer.blade.php';?>
         <main>
             <div>
-            <a href="/accountLogin">J'ai déjà un compte</a> <br>
-            <a href="/accountCreate">Créer mon compte</a>
+            <a href="/login">J'ai déjà un compte</a> <br>
+            <a href="/accountForm">Créer mon compte</a>
             </div>
 
         </main>

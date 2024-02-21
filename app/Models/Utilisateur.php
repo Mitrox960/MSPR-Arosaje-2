@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-class Utilisateur extends Model
+class Utilisateur extends Model implements Authenticatable
 {
     protected $table = 'utilisateurs';
     protected $primaryKey = 'id';
@@ -39,6 +40,36 @@ class Utilisateur extends Model
     public function historiques()
     {
         return $this->hasMany(Historique::class, 'id_utilisateur');
+    }
+
+     public function getAuthIdentifierName()
+    {
+        return 'id';
+    }
+
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->mot_de_passe;
+    }
+
+     public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
     }
 
     // Ajoute d'autres relations si n�cessaire

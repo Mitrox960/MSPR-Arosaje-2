@@ -14,7 +14,7 @@
         <?php include '../resources/views/footer.blade.php';?>
         <main>
             <div>
-            <form method="POST" action="{{ route('accountCreate') }}">
+            <form method="POST" action="{{ route('accountForm') }}">
             @csrf
                 <div>
                     <label>Nom</label><br />
