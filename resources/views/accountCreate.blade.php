@@ -8,9 +8,8 @@
     <title>Créer ton Compte</title>
 </head>
 <body>
-        <header>
-            <iframe src="/header" width="100%" height="100"></iframe>
-        </header>
+        <?php include '../resources/views/headerHome.blade.php';?>
+        <?php include '../resources/views/footer.blade.php';?>
         <main>
             <div>
             <form type="POST">
@@ -31,9 +30,6 @@
             </form>
             </div>
         </main>
-        <footer>
-        <iframe src="/footer" width="100%" height="100"></iframe>
-
-        </footer>
+        
 </body>
 </html>

@@ -10,11 +10,6 @@
         <?php include '../resources/views/headerHome.blade.php';?>
         <?php include '../resources/views/footer.blade.php';?>
         <main>
-            <div>
-            <a href="/accountLogin">J'ai déjà un compte</a> <br>
-            <a href="/accountCreate">Créer mon compte</a>
-            </div>
-
         </main>
         
     </body>

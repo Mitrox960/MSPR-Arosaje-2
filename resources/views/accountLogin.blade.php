@@ -7,9 +7,8 @@
     <link href="css/accountLogin.css" rel="stylesheet">
 </head>
 <body>  
-        <header>
-            <iframe src="/header" width="100%" height="100"></iframe>
-        </header>
+        <?php include '../resources/views/headerHome.blade.php';?>
+        <?php include '../resources/views/footer.blade.php';?>
         <main>
         <form type="POST">
                 <div>
@@ -23,8 +22,6 @@
                 <a href="/accountCreate">Créer mon compte</a>
             </form>
         </main>
-        <footer>
-            <iframe src="/footer" width="100%" height="100"></iframe>
-        </footer>
+        
 </body>
 </html>

@@ -29,4 +29,15 @@ Route::get('/accountLogin', function () {
     return view('accountLogin');
 });
 
+/** --- When user is connected --- */
+Route::get('/headerHome', function () {
+    return view('headerHome');
+});
+Route::get('/accueil', function () {
+    return view('accueil');
+});
+Route::get('/userProfile', function () {
+    return view('userProfile');
+});
+
 

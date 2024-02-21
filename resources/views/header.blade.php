@@ -8,7 +8,8 @@
 </head>
 <body>
     <header>
-        <h1>A'rosa-je</h1>
+        <div><h1>A'rosa-je</h1></div>
+        <div><img src="assets/logo_arosaje.png"></div>
     </header>
 </body>
 </html>
