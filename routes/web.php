@@ -27,6 +27,8 @@ Route::get('/footer', function () {
 
 Route::post('/accountCreate', [CreateAccountController::class, 'register'])->name('accountCreate');
 
+
+
 Route::get('/accountLogin', function () {
     return view('accountLogin');
 });
