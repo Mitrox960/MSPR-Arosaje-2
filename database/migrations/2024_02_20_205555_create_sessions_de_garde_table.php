@@ -13,7 +13,7 @@ class CreateSessionsDeGardeTable extends Migration
             $table->id();
             $table->dateTime('date_de_debut');
             $table->dateTime('date_de_fin');
-            $table->unsignedBigInteger('id_utilisateur');
+            $table->unsignedBigInteger('id_utilisateur')->nullable();
             // Ajoute d'autres colonnes si n�cessaire
 
             $table->timestamps();
