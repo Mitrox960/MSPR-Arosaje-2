@@ -1,4 +1,3 @@
-// database/migrations/[timestamp]_create_utilisateurs_table.php
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -16,7 +15,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('prenom', 50);
             $table->date('date_de_naissance');
             $table->string('adresse_mail', 50);
-            $table->string('mot_de_passe', 50);
+            $table->string('mot_de_passe', 255);
             $table->string('telephone', 20);
             $table->unsignedBigInteger('id_adresse');
             $table->string('id_role', 50);
