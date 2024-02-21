@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Plante;
 
-class PlanteService extends BaseService
+class PlanteService
 {
     protected Plante $plante;
 

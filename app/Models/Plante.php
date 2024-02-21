@@ -16,7 +16,7 @@ class Plante extends Model
         'description',
         'conseil_entretien',
         'id_session_de_garde',
-        'id_utilisateur', // Ajoutez la clé étrangère vers utilisateur
+        'id_utilisateur', // Ajoutez la clÃ© Ã©trangÃ¨re vers utilisateur
     ];
 
     public function sessionDeGarde()
@@ -37,9 +37,9 @@ class Plante extends Model
             'description' => $desc,
             'conseil_entretien' => $conseil_entret,
             'id_session_de_garde' => $id_session_de_garde,
-            'id_utilisateur' => $id_utilisateur, // Ajoutez l'utilisateur lors de la création de la plante
+            'id_utilisateur' => $id_utilisateur, // Ajoutez l'utilisateur lors de la crÃ©ation de la plante
         ]);
     }
 
-    // Ajoutez d'autres relations ou méthodes si nécessaire
+    // Ajoutez d'autres relations ou mÃ©thodes si nÃ©cessaire
 }

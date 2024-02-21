@@ -25,10 +25,10 @@ class CreatePlanteController extends Controller
             'conseil_entretien' => 'required|string|max:255',
         ]);
 
-        // RÈcupÈrez l'utilisateur actuellement authentifiÈ
+        // R√©cup√©rez l'utilisateur actuellement authentifi√©
         $utilisateur = Auth::user();
 
-        // Utilisez la relation pour crÈer une plante associÈe ‡ cet utilisateur
+        // Utilisez la relation pour cr√©er une plante associ√©e √† cet utilisateur
         $plante = $utilisateur->plantes()->create([
             'nom' => $validatedData['nom'],
             'image' => $validatedData['image'],
@@ -36,7 +36,7 @@ class CreatePlanteController extends Controller
             'conseil_entretien' => $validatedData['conseil_entretien'],
         ]);
 
-        // Rediriger vers la page d'accueil ou une autre page appropriÈe avec un message de succËs
-        return redirect('/accueil')->with('success', 'Plante crÈÈe avec succËs!');
+        // Rediriger vers la page d'accueil ou une autre page appropri√©e avec un message de succ√®s
+        return redirect('/accueil')->with('success', 'Plante cr√©√©e avec succ√®s!');
     }
 }
