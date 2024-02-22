@@ -40,7 +40,7 @@ Route::get('/headerHome', function () {
     return view('headerHome');
 });
 
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout'); // Ajoutez cette ligne pour la connexion
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout')->middleware(['auth']);// Ajoutez cette ligne pour la connexion
 
 Route::get('/accueil', function () {
     return view('accueil');

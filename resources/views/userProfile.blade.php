@@ -17,19 +17,19 @@
             <li><label class="info">Email :</label><label>{{ $utilisateur->adresse_mail }}</label></li>
             <li><label class="info">Téléphone :</label><label>{{ $utilisateur->telephone }}</label></li>
 
-           
-            <!-- Ajoutez cette partie dans votre vue userProfile.blade.php -->
             <li><label class="info">Ville :</label><label>{{ $utilisateur->adresse->ville}}</label></li>
             <li><label class="info">Code postal :</label><label>{{ $utilisateur->adresse->code_postal}}</label></li>
             <li><label class="info">Nom de la voie :</label><label>{{ $utilisateur->adresse->nom_voie}}</label></li>
             <li><label class="info">Numéro de la voie :</label><label>{{ $utilisateur->adresse->numero_voie}}</label></li>
 
-
-
-            <!-- Assurez-vous d'ajuster le champ adresse_complete en fonction de votre modèle Adresse -->
-
-            
-
+            @auth
+            <li>
+                <form method="GET" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit">Déconnexion</button>
+                </form>
+            </li>
+            @endauth
         </ul>
     </main>
 </body>
