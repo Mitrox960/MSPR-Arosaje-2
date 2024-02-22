@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +15,12 @@ class Plante extends Model
         'description',
         'conseil_entretien',
         'id_session_de_garde',
-        'id_utilisateur', // Ajoutez la clé étrangère vers utilisateur
+        'id_utilisateur',
+        'postee',
+    ];
+
+    protected $attributes = [
+        'postee' => false, // Remplacez "votre_nouveau_champ" par le nom réel de votre champ booléen
     ];
 
     public function sessionDeGarde()
@@ -37,7 +41,8 @@ class Plante extends Model
             'description' => $desc,
             'conseil_entretien' => $conseil_entret,
             'id_session_de_garde' => $id_session_de_garde,
-            'id_utilisateur' => $id_utilisateur, // Ajoutez l'utilisateur lors de la création de la plante
+            'id_utilisateur' => $id_utilisateur,
+            // Ne pas inclure le champ booléen ici car il sera défini par défaut
         ]);
     }
 

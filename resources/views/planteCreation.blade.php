@@ -10,21 +10,20 @@
     <?php include '../resources/views/headerHome.blade.php'; ?>
     <?php include '../resources/views/footer.blade.php'; ?>
     <main>
-        <form method="POST" action="{{ route('planteCreation') }}">
+        <form method="POST" action="{{ route('planteCreation') }}" enctype="multipart/form-data">
             @csrf
             <div>
                 <label>Nom</label><br />
-                <input name="nom" placeholder="Nom" type="text" /><br />
+                <input name="nom" placeholder="Nom" type="text" required /><br />
                 <label>Image</label><br />
-                <input name="image" placeholder="Prenom" type="text" /><br />
+                <input name="image" type="file" accept="image/*" required /><br />
                 <label>Description</label><br />
-                <input name="description" placeholder="Adresse Email" type='text' /><br />
+                <input name="description" placeholder="Description" type="text" required /><br />
                 <label>Conseil_entretien</label><br />
-                <input name="conseil_entretien" placeholder="Conseil sur l'entretien" type="text" /><br />
+                <input name="conseil_entretien" placeholder="Conseil sur l'entretien" type="text" required /><br />
             </div>
             <input type='submit' value='Enregistrer les modifications' class="buttonPostCreateAcccount" />
         </form>
     </main>
-
 </body>
 </html>

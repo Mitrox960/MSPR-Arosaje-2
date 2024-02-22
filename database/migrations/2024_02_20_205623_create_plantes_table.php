@@ -10,12 +10,13 @@ class CreatePlantesTable extends Migration
         Schema::create('plantes', function (Blueprint $table) {
             $table->id();
             $table->string('nom', 50);
-            $table->string('image', 100);
+            $table->longText('image');
             $table->string('description', 500);
             $table->string('conseil_entretien', 500);
             $table->unsignedBigInteger('id_session_de_garde')->nullable();
             $table->unsignedBigInteger('id_utilisateur'); // Ajout de la clé étrangère vers utilisateur
-            // Ajoute d'autres colonnes si nécessaire
+            $table->boolean('postee')->default(false); 
+            // Ajoutez d'autres colonnes si nécessaire
 
             $table->timestamps();
         });

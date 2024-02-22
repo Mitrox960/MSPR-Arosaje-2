@@ -6,7 +6,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CreatePlanteController;
 use App\Http\Controllers\UserPlantesController;
-
+use App\Http\Controllers\AllPlantsController;
+use App\Http\Controllers\PostPlantController;
+use App\Http\Controllers\RemovePlantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,5 +93,23 @@ Route::fallback(function () {
 
 Route::post('/planteCreation', [CreatePlanteController::class, 'creationPlante'])->name('planteCreation');
 Route::get('/plante', [CreatePlanteController::class, 'showPlanteCreationForm'])->name('showPlanteCreationForm');
-
 Route::get('/user-plantes', [UserPlantesController::class, 'showPlantes'])->name('user.plantes');
+
+Route::get('/allPlants', [AllPlantsController::class, 'allPlants'])->name('allPlants');
+
+
+
+
+
+Route::put('/postPlant/{plante}', [PostPlantController::class, 'postPlant'])->name('postPlant');
+
+
+Route::put('/removePlant/{plante}', [RemovePlantController::class, 'removePlant'])->name('removePlant');
+
+// routes/web.php
+
+Route::post('/plante/photo/{plante}', 'PlanteController@prendrePhoto')->name('prendrePhoto');
+
+
+
+Route::put('/plante/photo/{plante}', [CreatePlanteController::class, 'plante/photo'])->name('plante/photo');
