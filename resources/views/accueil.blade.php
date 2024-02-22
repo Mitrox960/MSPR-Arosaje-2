@@ -10,9 +10,9 @@
     <?php include '../resources/views/footer.blade.php';?>
    <main>
         <!-- Ajoutez vos boutons ici -->
-        <a href="{{ route('showPlanteCreationForm') }}"><button>Aller vers Plante</button></a>
-        <a href="{{ route('user.plantes') }}"><button>Aller vers Mes Plantes</button></a>
-        <a href="{{ route('allPlants') }}"><button>Toutes les plantes</button></a>
+        <a href="{{ route('showPlanteCreationForm') }}"><button>Ajouter une plante</button></a>
+        <a href="{{ route('user.plantes') }}"><button>Mes plantes</button></a>
+        <a href="{{ route('allPlants') }}"><button>Trouver une plante</button></a>
 
     </main>
 </body>

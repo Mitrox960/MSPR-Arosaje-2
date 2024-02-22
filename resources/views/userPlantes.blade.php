@@ -6,6 +6,8 @@
     <title>Mes Plantes</title>
 </head>
 <body>
+    <?php include '../resources/views/headerHome.blade.php'; ?>
+    <?php include '../resources/views/footer.blade.php'; ?>
 
     <h1>Mes Plantes</h1>
 
@@ -24,11 +26,21 @@
                     
                     <strong>Conseil d'entretien:</strong> {{ $plante->conseil_entretien }}<br />
                     
-                    <form action="{{ route('postPlant', ['plante' => $plante->id]) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit">Poster ma plante</button>
-                    </form>
+                    @if($plante->postee)
+                        <!-- Si la plante a été postée, afficher le bouton "Retirer plante" -->
+                        <form action="{{ route('removePlant', ['plante' => $plante->id]) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit">Retirer ma plante</button>
+                        </form>
+                    @else
+                        <!-- Sinon, afficher le bouton "Ajouter plante" -->
+                        <form action="{{ route('postPlant', ['plante' => $plante->id]) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit">Poster ma plante</button>
+                        </form>
+                    @endif
                 </li>
             @endforeach
         </ul>
