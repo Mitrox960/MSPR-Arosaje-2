@@ -31,7 +31,7 @@ public function register(Request $request)
         'code_postal' => 'required|string|max:10',
         'nom_voie' => 'required|string|max:255',
         'numero_voie' => 'required|string|max:20',
-        'role' => 'required|in:admin,user',
+        'role' => 'required|in:botaniste,utilisateur',
         'date_de_naissance' => 'required|date',
         'telephone' => 'required|string|max:20',
     ]);

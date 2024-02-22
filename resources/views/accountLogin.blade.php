@@ -19,7 +19,7 @@
                 <input name="mot_de_passe" placeholder="Mot de passe" type="password"> <br>
             </div>
             <input type='submit' value='Se connecter' class="buttonPostCreateAcccount">
-            <a href="{{ route('accountCreate') }}">Créer mon compte</a>
+            <a href="{{ route('accountForm') }}">Créer mon compte</a>
         </form>
     </main>
 

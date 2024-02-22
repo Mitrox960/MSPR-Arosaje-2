@@ -12,6 +12,6 @@ class RemovePlantController extends Controller
         $plante->update(['postee' => false]);
 
         // Redirigez l'utilisateur vers la page des plantes de l'utilisateur
-        return redirect()->route('allPlants');
+        return redirect()->back();
     }
 }
