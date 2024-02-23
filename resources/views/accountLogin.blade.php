@@ -7,14 +7,13 @@
     <link href="css/accountLogin.css" rel="stylesheet">
 </head>
 <body>
-     <?php include '../resources/views/headerHome.blade.php';?>
-     <?php include '../resources/views/footer.blade.php';?>
+     <?php include '../resources/views/headerLogin.blade.php';?>
     <main>
         <form method="POST" action="{{ route('sendLogin') }}">
             @csrf
             <div>
                 <label>Identifiant</label> <br>
-                <input name="identifiant" placeholder="Email ou nom d'utilisateur" type="text"> <br>
+                <input name="identifiant" placeholder="Email de l'utilisateur" type="text"> <br>
                 <label>Mot de passe</label> <br>
                 <input name="mot_de_passe" placeholder="Mot de passe" type="password"> <br>
             </div>
@@ -22,7 +21,5 @@
             <a href="{{ route('accountForm') }}">Créer mon compte</a>
         </form>
     </main>
-
-    @include('footer') <!-- Inclure le footer -->
 </body>
 </html>

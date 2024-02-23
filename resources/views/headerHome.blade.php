@@ -8,9 +8,8 @@
 <body>
     <header>
         <div>
-            <a href="/plante">Plantes</a>
-            <a href="/plante">Vos annonces</a>
-            <a href="/accueil">Accueil</a>
+            <a href="/accueil" class="back-button">&#8249; Accueil</a>
+
         </div>
         <div>
             <h1>A'rosa-je</h1>

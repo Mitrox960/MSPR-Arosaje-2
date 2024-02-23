@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer écologique</title>
-    <link href="css/footer.css" rel="stylesheet">
+<!-- Ajouter un identifiant à votre footer -->
+<footer id="main-footer">
+    <div class="eco-footer">
+        <p>Your footer content here</p>
+        <!-- Ajouter d'autres éléments du footer si nécessaire -->
+    </div>
+</footer>
 
-</head>
-<body>
-    <footer class="eco-footer">
-        <p>&copy; 2024 Mon Site Écologique. Tous droits réservés.</p>
-        <nav>
-            <a href="#">Politique de confidentialité</a>
-            <a href="#">Conditions d'utilisation</a>
-            <a href="#">Plan du site</a>
-        </nav>
-    </footer>
+<!-- Ajouter le script JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        window.onscroll = function() {
+            showHideFooter();
+        };
+    });
 
-</body>
-</html>
+    function showHideFooter() {
+        var footer = document.getElementById("main-footer");
+        var scrollHeight = document.documentElement.scrollHeight;
+        var clientHeight = document.documentElement.clientHeight;
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+        // Afficher le footer uniquement lorsque l'utilisateur a fait défiler jusqu'en bas
+        if (scrollTop + clientHeight >= scrollHeight) {
+            footer.style.display = "block";
+        } else {
+            footer.style.display = "none";
+        }
+    }
+</script>
+
