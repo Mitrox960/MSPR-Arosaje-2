@@ -7,7 +7,6 @@
 </head>
 <body class="antialiased">
     <?php include '../resources/views/headerHome.blade.php'; ?>
-    <?php include '../resources/views/footer.blade.php'; ?>
     <main>
         <h1>Les informations de compte</h1>
         <ul>

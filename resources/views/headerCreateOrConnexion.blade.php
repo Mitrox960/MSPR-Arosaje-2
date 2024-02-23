@@ -8,7 +8,7 @@
 <body>
     <header>
         <div>
-            <h1>Bienvenur sur Arosaje !</h1>
+            <h1>Bienvenue sur Arosaje !</h1>
         </div>
     </header>
 </body>
