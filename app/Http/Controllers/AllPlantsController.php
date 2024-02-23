@@ -11,7 +11,7 @@ class AllPlantsController extends \Illuminate\Routing\Controller
     {
         // Charger les plantes avec la relation utilisateur, mais exclure le champ "postee"
         $plantes = Plante::where('postee', true)->with(['utilisateur' => function ($query) {
-            $query->select('id', 'nom', 'prenom', 'adresse_mail'); // Exclure le champ "postee"
+            $query->select('id', 'nom', 'prenom', 'adresse_mail', 'telephone'); // Exclure le champ "postee"
         }])->get();
 
 
