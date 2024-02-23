@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\routes"
+    "\\app",
+    "\\resources\\css"
   ],
-  "SelectedNode": "\\routes\\web.php",
+  "SelectedNode": "\\.env",
   "PreviewInSolutionExplorer": false
 }
