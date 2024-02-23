@@ -7,8 +7,7 @@
 
 </head>
     <body class="antialiased">
-        <?php include '../resources/views/headerHome.blade.php';?>
-        <?php include '../resources/views/footer.blade.php';?>
+        <?php include '../resources/views/headerCreateOrConnexion.blade.php';?>
         <main>
             <div>
             <a href="/login">J'ai déjà un compte</a> <br>

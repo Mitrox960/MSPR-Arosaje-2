@@ -10,8 +10,7 @@
     <title>Créer ton Compte</title>
 </head>
 <body>
-    <?php include '../resources/views/headerHome.blade.php'; ?>
-    <?php include '../resources/views/footer.blade.php'; ?>
+    <?php include '../resources/views/headerCreateAccount.blade.php'; ?>
     <main>
         <div>
             <form method="POST" action="{{ route('accountCreate') }}">
@@ -56,13 +55,13 @@
 
                     <!-- Case à cocher pour accepter les CGU -->
                     <label for="accepter_cgu">
-                        <input type="checkbox" id="accepter_cgu" name="accepter_cgu" required />
                         J'accepte les CGU
+                        <input type="checkbox" id="accepter_cgu" name="accepter_cgu" required />
                     </label>
                 </div>
 
                 <!-- Bouton pour soumettre le formulaire -->
-                <input type='submit' value='Enregistrer les modifications' class="buttonPostCreateAcccount" />
+                <input type='submit' value='Creer mon compte' class="buttonPostCreateAcccount" />
             </form>
         </div>
     </main>
