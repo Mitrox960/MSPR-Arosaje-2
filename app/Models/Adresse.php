@@ -19,7 +19,7 @@ class Adresse extends Model
 
     public function utilisateurs()
     {
-        return $this->hasMany(Utilisateur::class, 'id_adresse');
+        return $this->hasMany(User::class, 'id_adresse');
     }
 
     // Ajoute d'autres relations si n�cessaire

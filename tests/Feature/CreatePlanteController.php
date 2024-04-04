@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\PlanteController;
+//use App\Http\Controllers\PlanteController;
 use App\Models\Utilisateur;
 
 class CreatePlanteControllerTest extends TestCase
@@ -23,7 +23,7 @@ class CreatePlanteControllerTest extends TestCase
         $image = UploadedFile::fake()->image('test.jpg');
 
         //Act
-        $controller = new PlanteController();
+       // $controller = new PlanteController();
 
         $response = $controller->creationPlante([
             'nom' => 'Nom de la plante',

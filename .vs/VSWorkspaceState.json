@@ -1,9 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\resources\\css"
+    "\\tests",
+    "\\vendor\\laravel",
+    "\\vendor\\laravel\\framework",
+    "\\vendor\\laravel\\framework\\src",
+    "\\vendor\\laravel\\framework\\src\\Illuminate",
+    "\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation",
+    "\\vendor\\tymon",
+    "\\vendor\\tymon\\jwt-auth",
+    "\\vendor\\tymon\\jwt-auth\\src"
   ],
-  "SelectedNode": "\\.env",
+  "SelectedNode": "\\app\\Http\\Controllers\\CreateUserController.php",
   "PreviewInSolutionExplorer": false
 }

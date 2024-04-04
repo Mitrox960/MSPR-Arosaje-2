@@ -30,7 +30,7 @@ class Plante extends Model
 
     public function utilisateur()
     {
-        return $this->belongsTo(Utilisateur::class, 'id_utilisateur');
+        return $this->belongsTo(User::class, 'id_utilisateur');
     }
 
     public function createPlante(string $nom, string $image, string $desc, string $conseil_entret, $id_session_de_garde, $id_utilisateur)
