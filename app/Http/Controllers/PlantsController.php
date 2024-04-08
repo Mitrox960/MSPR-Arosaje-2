@@ -54,7 +54,6 @@ class PlantsController extends Controller
             return response()->json(['error' => 'Une erreur s\'est produite lors de la création de la plante.', 'message' => $e->getMessage()], 500);
         }
     }
-
     public function getUserPlants()
     {
         try {
@@ -65,6 +64,32 @@ class PlantsController extends Controller
             $utilisateur = Auth::user();
 
             $plantes = $utilisateur->plantes;
+
+            // Décoder les images encodées en base64 avant de les renvoyer
+            foreach ($plantes as $plante) {
+                // Vérifier si l'image est encodée en base64
+                if (strpos($plante->image, 'data:image/jpeg;base64,') === 0) {
+                    // Supprimer le préfixe "data:image/jpeg;base64,"
+                    $imageData = substr($plante->image, strpos($plante->image, ',') + 1);
+                    // Décoder l'image base64 en format binaire
+                    $decodedImage = base64_decode($imageData);
+                    // Enregistrer l'image décodée dans un fichier temporaire
+                    $tempImagePath = tempnam(sys_get_temp_dir(), 'plant_image');
+                    file_put_contents($tempImagePath, $decodedImage);
+                    // Convertir l'image en JPEG
+                    $jpegImagePath = tempnam(sys_get_temp_dir(), 'plant_image') . '.jpg';
+                    $image = imagecreatefromjpeg($tempImagePath);
+                    imagejpeg($image, $jpegImagePath, 100);
+                    imagedestroy($image);
+                    // Lire le contenu de l'image JPEG
+                    $jpegImageData = file_get_contents($jpegImagePath);
+                    // Supprimer les fichiers temporaires
+                    unlink($tempImagePath);
+                    unlink($jpegImagePath);
+                    // Mettre à jour l'image de la plante avec l'image JPEG
+                    $plante->image = $jpegImageData;
+                }
+            }
 
             return response()->json($plantes, 200);
         } catch (\Exception $e) {
@@ -120,5 +145,43 @@ class PlantsController extends Controller
             return response()->json(['error' => 'Une erreur s\'est produite lors de la suppression de la plante.', 'message' => $e->getMessage()], 500);
         }
     }
+    public function allPlants()
+    {
+        try {
+            // Récupérer toutes les plantes avec les informations sur le propriétaire
+            $plantes = Plante::with(['utilisateur.adresse'])->where('postee', true)->get();
+            // Décoder les images encodées en base64 avant de les renvoyer
+            foreach ($plantes as $plante) {
+                // Vérifier si l'image est encodée en base64
+                if (strpos($plante->image, 'data:image/jpeg;base64,') === 0) {
+                    // Supprimer le préfixe "data:image/jpeg;base64,"
+                    $imageData = substr($plante->image, strpos($plante->image, ',') + 1);
+                    // Décoder l'image base64 en format binaire
+                    $decodedImage = base64_decode($imageData);
+                    // Enregistrer l'image décodée dans un fichier temporaire
+                    $tempImagePath = tempnam(sys_get_temp_dir(), 'plant_image');
+                    file_put_contents($tempImagePath, $decodedImage);
+                    // Convertir l'image en JPEG
+                    $jpegImagePath = tempnam(sys_get_temp_dir(), 'plant_image') . '.jpg';
+                    $image = imagecreatefromjpeg($tempImagePath);
+                    imagejpeg($image, $jpegImagePath, 100);
+                    imagedestroy($image);
+                    // Lire le contenu de l'image JPEG
+                    $jpegImageData = file_get_contents($jpegImagePath);
+                    // Supprimer les fichiers temporaires
+                    unlink($tempImagePath);
+                    unlink($jpegImagePath);
+                    // Mettre à jour l'image de la plante avec l'image JPEG
+                    $plante->image = $jpegImageData;
+                }
+            }
 
+            return response()->json($plantes);
+        } catch (\Exception $e) {
+            // Journalisez l'erreur
+            \Log::error('Erreur lors de la récupération des plantes : ' . $e->getMessage());
+            // Retournez une réponse d'erreur avec le message complet de l'exception
+            return response()->json(['message' => 'Une erreur est survenue lors de la récupération des plantes.', 'error' => $e->getMessage()], 500);
+        }
+    }
 }

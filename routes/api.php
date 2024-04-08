@@ -13,12 +13,13 @@ use App\Http\Controllers\PlantsController;
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "api" middleware group. Enjoy building your API !
 |
 */
 Route::post('/register', [CreateUserController::class, 'register']);
 Route::post('/plants/createplant', [PlantsController::class, 'createPlant']);
 Route::get('/plants/get-user-plants', [PlantsController::class, 'getUserPlants']);
+Route::get('/plants/get-all-plants', [PlantsController::class, 'allPlants']);
 Route::patch('/plants/post-plant/{plante}', [PlantsController::class, 'postPlant']);
 Route::patch('/plants/remove-plant/{plante}', [PlantsController::class, 'removePlant']);
 Route::delete('/plants/delete-plant/{plante}', [PlantsController::class, 'deletePlant']);
