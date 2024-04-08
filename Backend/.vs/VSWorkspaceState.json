@@ -5,11 +5,12 @@
     "\\app\\Http",
     "\\app\\Http\\Controllers",
     "\\app\\Models",
-    "\\config",
+    "\\database",
+    "\\database\\migrations",
     "\\resources",
     "\\resources\\views",
     "\\routes"
   ],
-  "SelectedNode": "\\routes\\api.php",
+  "SelectedNode": "\\database\\migrations\\2024_02_20_205544_create_roles_table.php",
   "PreviewInSolutionExplorer": false
 }
