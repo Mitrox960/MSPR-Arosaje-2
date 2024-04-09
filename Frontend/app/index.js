@@ -5,8 +5,8 @@ import { Link } from 'expo-router';
 export default function Page() {
   return (
     <View style={styles.container}>
+      <Text>Bienvenue sur Arosaje! </Text>
       <Link href="/register" style={styles.link}>Register</Link>
-      {/* ...other links */}
       <Link href="/login" style={styles.link}>Login</Link>
     </View>
   );
@@ -15,13 +15,21 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#e6f7ff', // Bleu clair pour un aspect futuriste
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+
   },
   link: {
-    fontSize: 18,
-    color: 'blue', // Change the color of the link text to blue
-    textDecorationLine: 'underline', // Add underline decoration
-    marginBottom: 10, // Add space between links
+    backgroundColor: '#fff',
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    marginVertical: 30,
+    paddingHorizontal: 50
   },
+  
 });

@@ -19,8 +19,42 @@ const SignUpForm = () => {
   const [telephone, setTelephone] = useState('');
   const [role, setRole] = useState('utilisateur'); // Définir le rôle par défaut sur "utilisateur"
   const router = useRouter(); // Initialisez le hook useRouter
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignUp = async () => {
+      if (!nom || !prenom || !email || !password || !passwordConfirmation || !ville || !codePostal || !nomVoie || !numeroVoie || !dateNaissance || !telephone || !role) {
+        setErrorMessage("Tout les champs n'ont pas été remplis");
+        return false;
+      }
+
+      if(password.length < 8) {
+        setErrorMessage('Password trop faible, il doit contenir au moins 8 caractères');
+        return false;
+
+      }
+
+      if(dateNaissance.indexOf('-') != 4 && dateNaissance.indexOf('-') != 7) {
+        setErrorMessage('Format de date non valide, veuillez entrer la date sous ce format: YEAR-MM-DD / 2001-01-08');
+        setErrorMessage(dateNaissance.indexOf('-'))
+        return false;
+
+
+      }
+
+      if(password != passwordConfirmation){
+        setErrorMessage('Le mot de passe de vérification ne correspond pas au mot de passe');
+        return false;
+      }
+
+      if(!email.indexOf('@')){
+        setErrorMessage('Format du mail non valide');
+        return false;
+      }
+
+      if(numeroVoie)
+      setErrorMessage('');
+    
+    
     try {
       const response = await axios.post(`http://${ SERVER_IP }:8000/api/register`, {
         nom: nom,
@@ -36,7 +70,7 @@ const SignUpForm = () => {
         date_de_naissance: dateNaissance,
         nom_role: role,
       });
-    
+      
       console.log('Réponse de l\'API :', response.data);
       router.push('/login'); // Redirigez vers la page de connexion après l'inscription
     } catch (error) {
@@ -123,6 +157,7 @@ const SignUpForm = () => {
           <Picker.Item label="Botaniste" value="botaniste" />
         </Picker>
         <Button title="S'inscrire" onPress={handleSignUp} />
+        {errorMessage ? <TextInput style={styles.errorMessage}>{errorMessage}</TextInput> : null}
       </View>
     </ScrollView>
   );
