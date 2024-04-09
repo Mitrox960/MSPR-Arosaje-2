@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
 import { SERVER_IP } from '@env';
@@ -80,6 +80,7 @@ const SignUpForm = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.form}>
+      <Text style={styles.title}> REGISTER </Text>
         <TextInput
           style={styles.input}
           placeholder="Nom"
@@ -156,7 +157,7 @@ const SignUpForm = () => {
           <Picker.Item label="Utilisateur" value="utilisateur" />
           <Picker.Item label="Botaniste" value="botaniste" />
         </Picker>
-        <Button title="S'inscrire" onPress={handleSignUp} />
+        <Button title="S'inscrire" onPress={handleSignUp} style={styles.send} />
         {errorMessage ? <TextInput style={styles.errorMessage}>{errorMessage}</TextInput> : null}
       </View>
     </ScrollView>
@@ -169,11 +170,22 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff', // Fond blanc pour l'application
+    backgroundColor: '#CFFFD4',  
+
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 15,
+
   },
   form: {
+    backgroundColor: 'white',   
     width: '80%',
     alignItems: 'center',
+    padding: 10,
+    marginBottom:10,
+    borderRadius: 25,
   },
   input: {
     width: '100%',
@@ -183,6 +195,9 @@ const styles = StyleSheet.create({
     padding: 10,
     color: '#000', // Couleur du texte noir
   },
+  send: {
+    backgroundColor: '#2BDB3E',
+  }
 });
 
 export default SignUpForm;

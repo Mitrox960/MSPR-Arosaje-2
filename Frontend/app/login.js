@@ -37,7 +37,9 @@ export default function Login({ navigation }) {
   };
 
   return (
+    <View style={styles.view}>
     <View style={styles.container}>
+      <Text style={styles.title}>LOG IN</Text>
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
@@ -53,25 +55,41 @@ export default function Login({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Se connecter" onPress={handleLogin} />
+      <Button title="Se connecter" onPress={handleLogin} style={styles.button}
+/>
       <Text style={styles.forgotPasswordText} onPress={() => navigation.navigate("RequestOTP")}>
-        Forgot Password? Reset Here!
+        J'ai perdu mon mot de passe
       </Text>
       <Button
         title="Register Here"
         onPress={() => navigation.navigate("Register")}
+        style={styles.button}
       />
+    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  view: {
     flex: 1,
-    backgroundColor: '#e6f7ff', // Bleu clair pour un aspect futuriste
+    backgroundColor: '#CFFFD4', // Bleu clair pour un aspect futuriste
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+  },
+  container: {
+    backgroundColor : 'white',
+    padding: 15,
+    borderRadius: 15,
+
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 15,
+
+
   },
   form: {
     width: '100%',
@@ -88,18 +106,22 @@ const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
-  button: {
-    backgroundColor: '#48c774', // Vert écologique pour un aspect écologique
+  forgotPasswordText: {
     padding: 15,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
+
   },
-  buttonText: {
+  button: {
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
+    backgroundColor: '#2BDB3E',
+    shadowColor: 'white',
+    width: 100,
   },
+
 });
 
