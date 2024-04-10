@@ -14,7 +14,7 @@ class infouserTest extends TestCase
     use RefreshDatabase; // Utilisation du trait RefreshDatabase pour s'assurer que chaque test démarre avec une base de données vierge.
 
     // Définition de la méthode de test. Cette méthode devrait être préfixée par "test" pour être reconnue automatiquement par PHPUnit, par exemple, "testInfoUser".
-    public function infouserTest()
+    public function testInfouser()
     {
         // Crée un nouvel utilisateur factice et l'insère dans la base de données.
         $user = User::factory()->create();
