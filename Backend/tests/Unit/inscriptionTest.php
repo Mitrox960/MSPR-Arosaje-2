@@ -16,7 +16,7 @@ class inscriptionTest extends TestCase
     use RefreshDatabase; // Application du trait pour s'assurer que la base de données est réinitialisée avant chaque test.
 
     // Méthode de test pour l'inscription. Le nom de la méthode devrait idéalement commencer par "test" pour suivre les conventions de PHPUnit.
-    public function inscriptionTest()
+    public function testInscription()
     {
         // Préparation des données de l'utilisateur à inscrire.
         $userData = [
