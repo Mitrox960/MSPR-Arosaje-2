@@ -15,7 +15,7 @@ class supprimerplanteTest extends TestCase
     use RefreshDatabase; // Utilisation du trait pour s'assurer que la base de données est propre avant chaque test.
 
     // Méthode de test pour la suppression d'une plante. Le nom de la méthode devrait commencer par "test" pour suivre les conventions (ex. : testSupprimerPlante).
-    public function supprimerplanteTest()
+    public function testSupprimerplante()
     {
         // Crée un utilisateur factice dans la base de données.
         $user = User::factory()->create();
