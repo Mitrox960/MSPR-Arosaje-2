@@ -14,7 +14,7 @@ class authentificationTest extends TestCase
     use RefreshDatabase; // Utilise le trait RefreshDatabase pour s'assurer que la base de données est réinitialisée avant chaque test.
 
     // Définit une méthode de test. Attention : dans Laravel, chaque méthode de test doit commencer par "test". Ici, le nom est mal choisi et devrait être "testAuthentification" par exemple.
-    public function authentificationTest()
+    public function testAuthentification()
     {
         // Crée un nouvel utilisateur factice en utilisant la factory User. Cet utilisateur est sauvegardé dans la base de données.
         $user = User::factory()->create([
