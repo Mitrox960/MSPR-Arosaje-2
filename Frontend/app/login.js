@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, Alert, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useRouter } from 'expo-router'; // Importez le hook useRouter
@@ -9,6 +9,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter(); // Initialisez le hook useRouter
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -31,13 +32,16 @@ export default function Login({ navigation }) {
       setEmail('');
       setPassword('');
     } catch (error) {
-      console.error('Erreur lors de la requête :', error.message);
-      Alert.alert('Error', 'Erreur lors de la connexion', error.message);
+      setErrorMessage("Le mot de passe / email n'est pas valide");
+      return false;
     }
   };
 
   return (
+    <View style={styles.view}>
     <View style={styles.container}>
+    <Image source={require('../assets/images/Arosaje.png')}  style={styles.image}/>
+      <Text style={styles.title}>LOG IN</Text>
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
@@ -53,42 +57,85 @@ export default function Login({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Se connecter" onPress={handleLogin} />
+            {errorMessage ? <TextInput style={styles.errorMessage}>{errorMessage}</TextInput> : null}
+
+      <Button title="Se connecter" onPress={handleLogin} style={styles.button}
+/>
+
       <Text style={styles.forgotPasswordText} onPress={() => navigation.navigate("RequestOTP")}>
-        Forgot Password? Reset Here!
+        J'ai perdu mon mot de passe
       </Text>
+
       <Button
         title="Register Here"
         onPress={() => navigation.navigate("Register")}
+        style={styles.button}
       />
+    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  view: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#CFFFD4', // Bleu clair pour un aspect futuriste
     alignItems: 'center',
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    padding: 20,
   },
-  label: {
-    alignSelf: 'flex-start',
-    marginBottom: 5,
+  container: {
+    backgroundColor : 'white',
+    padding: 15,
+    borderRadius: 15,
+
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 15,
+
+
+  },
+  form: {
+    width: '100%',
   },
   input: {
-    width: '100%',
-    height: 40,
-    borderWidth: 1,
+    backgroundColor: '#fff',
     borderColor: '#ccc',
+    borderWidth: 1,
     borderRadius: 5,
-    paddingHorizontal: 10,
-    marginBottom: 20,
+    padding: 10,
+    marginBottom: 10,
+  },
+  errorMessage: {
+    color: 'red',
+    marginBottom: 10,
   },
   forgotPasswordText: {
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 10,
-    color: 'blue',
-    textDecorationLine: 'underline',
+
   },
+  button: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+    backgroundColor: '#2BDB3E',
+    shadowColor: 'white',
+    width: 100,
+  },
+  image: {
+    width: 280,
+    height:200,
+  },
+  login:{
+    width: 28,
+    height:20,
+  }
+
 });
+
