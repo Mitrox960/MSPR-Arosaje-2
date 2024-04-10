@@ -9,6 +9,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter(); // Initialisez le hook useRouter
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -31,8 +32,8 @@ export default function Login({ navigation }) {
       setEmail('');
       setPassword('');
     } catch (error) {
-      console.error('Erreur lors de la requête :', error.message);
-      Alert.alert('Error', 'Erreur lors de la connexion', error.message);
+      setErrorMessage("Le mot de passe / email n'est pas valide");
+      return false;
     }
   };
 
@@ -56,11 +57,15 @@ export default function Login({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
+            {errorMessage ? <TextInput style={styles.errorMessage}>{errorMessage}</TextInput> : null}
+
       <Button title="Se connecter" onPress={handleLogin} style={styles.button}
 />
+
       <Text style={styles.forgotPasswordText} onPress={() => navigation.navigate("RequestOTP")}>
         J'ai perdu mon mot de passe
       </Text>
+
       <Button
         title="Register Here"
         onPress={() => navigation.navigate("Register")}

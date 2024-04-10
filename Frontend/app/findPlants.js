@@ -59,6 +59,8 @@
           <Image source={{ uri: item.image }} style={styles.plantImage} />
           <Text style={styles.plantName}>{item.nom}</Text>
           <Text style={styles.detailText}>Description: {item.description}</Text>
+          <Text style={styles.detailText}>Téléphone: {item.utilisateur.telephone}</Text>
+         <Text style={styles.detailText}>Mail: {item.utilisateur.adresse_mail}</Text>
           {userId === item.utilisateur.id && (
             <TouchableOpacity
             style={styles.button} // Ajoutez le style ici

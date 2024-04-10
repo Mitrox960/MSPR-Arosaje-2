@@ -10,6 +10,7 @@ export default function ImagePickerExample() {
   const [nom, setNom] = useState('');
   const [description, setDescription] = useState('');
   const [conseilEntretien, setConseilEntretien] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const pickImageFromGallery = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -72,9 +73,10 @@ export default function ImagePickerExample() {
         console.error('Erreur lors de l\'envoi de la requête:', response.status);
         Alert.alert('Une erreur s\'est produite. Veuillez réessayer.');
       }
-    } catch (error) {
-      console.error('Erreur lors de l\'envoi de la requête:', error);
-      Alert.alert('Une erreur s\'est produite. Veuillez réessayer.');
+    } catch (error) {      
+      setErrorMessage("Erreur lors de l'upload, image invalide");
+
+      return false;
     }
   };
 
@@ -113,6 +115,8 @@ export default function ImagePickerExample() {
         </TouchableOpacity>
         </View>
         {image && <Image source={{ uri: image }} style={styles.image} />}
+        {errorMessage ? <TextInput style={styles.errorMessage}>{errorMessage}</TextInput> : null}
+
         <TouchableOpacity style={styles.addplantButton} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Ajouter la plante</Text>
         </TouchableOpacity>
