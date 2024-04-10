@@ -15,7 +15,7 @@ export default function Page() {
 const styles = StyleSheet.create({
   container : {
     flex: 1,
-    backgroundColor: '#CFFFD4', // Bleu clair pour un aspect futuriste
+    backgroundColor: '#CFFFD4',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
