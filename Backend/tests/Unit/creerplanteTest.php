@@ -16,7 +16,7 @@ class creerplanteTest extends TestCase
     use RefreshDatabase; // Utilisation du trait RefreshDatabase pour chaque test, assurant une base de données propre.
 
     // Méthode de test pour créer une plante. Le nom devrait commencer par 'test' pour que PHPUnit la reconnaisse automatiquement comme une méthode de test.
-    public function creerplanteTest()
+    public function testCreerplante()
     {
         Storage::fake('public'); // Simule un disque de stockage 'public', permettant de tester l'upload de fichiers sans affecter le système de fichiers réel.
 
