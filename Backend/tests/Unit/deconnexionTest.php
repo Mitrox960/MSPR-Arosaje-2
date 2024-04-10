@@ -14,7 +14,7 @@ class deconnexionTest extends TestCase
     use RefreshDatabase; // Utilise le trait RefreshDatabase pour s'assurer que la base de données est réinitialisée avant chaque test.
 
     // Méthode du test de déconnexion. Le nom devrait idéalement commencer par "test", comme "testDeconnexion" pour suivre les conventions de nommage de PHPUnit.
-    public function deconnexionTest()
+    public function testDeconnexion()
     {
         // Crée un utilisateur factice dans la base de données en utilisant la factory de User.
         $user = User::factory()->create();
