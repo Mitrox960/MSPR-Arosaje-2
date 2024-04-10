@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, Alert, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useRouter } from 'expo-router'; // Importez le hook useRouter
@@ -39,6 +39,7 @@ export default function Login({ navigation }) {
   return (
     <View style={styles.view}>
     <View style={styles.container}>
+    <Image source={require('../assets/images/Arosaje.png')}  style={styles.image}/>
       <Text style={styles.title}>LOG IN</Text>
       <Text style={styles.label}>Email</Text>
       <TextInput
@@ -122,6 +123,14 @@ const styles = StyleSheet.create({
     shadowColor: 'white',
     width: 100,
   },
+  image: {
+    width: 280,
+    height:200,
+  },
+  login:{
+    width: 28,
+    height:20,
+  }
 
 });
 

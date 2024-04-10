@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
 import { SERVER_IP } from '@env';
@@ -80,6 +80,8 @@ const SignUpForm = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.form}>
+      <Image source={require('../assets/images/Arosaje.png')}  style={styles.image}/>
+
       <Text style={styles.title}> REGISTER </Text>
         <TextInput
           style={styles.input}
@@ -185,7 +187,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     marginBottom:10,
-    borderRadius: 25,
+    borderRadius:20,
   },
   input: {
     width: '100%',
@@ -197,6 +199,10 @@ const styles = StyleSheet.create({
   },
   send: {
     backgroundColor: '#2BDB3E',
+  },
+  image: {
+    width: 280,
+    height:200,
   }
 });
 
